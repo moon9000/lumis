@@ -4,7 +4,7 @@ import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client"
 let apolloClient
 
 function createApolloClient() {
-  const graphqlEndpointUrl = 'http://127.0.0.1:1337/graphql'
+  const graphqlEndpointUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`
 
   return new ApolloClient({
     ssrMode: typeof window === "undefined",

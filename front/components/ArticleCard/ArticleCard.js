@@ -17,7 +17,7 @@ export function ArticleCard({ article, showContent = false }) {
       >
         {imageUrl && (
           <img
-            src={`http://localhost:1337${imageUrl}`}
+            src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`}
             width={300}
             height={300}
           />

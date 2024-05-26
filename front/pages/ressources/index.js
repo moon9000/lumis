@@ -32,7 +32,7 @@ export async function getStaticProps() {
 
   /* 
   const client = new ApolloClient({
-    uri: 'http://127.0.0.1:1337/graphql',
+    uri: `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`,
     cache: new InMemoryCache()
   })
 

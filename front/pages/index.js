@@ -44,7 +44,7 @@ export default function Home({homepage, articles}) {
       </Grid>
       <Grid xs={6} container direction='column' sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <Stack spacing={3} direction='column' sx={{textAlign: 'center'}}>
-          <img src={`http://localhost:1337${homepage.image.data.attributes.url}`} alt="" height='240' width='240'/>
+          <img src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${homepage.image.data.attributes.url}`} alt="" height='240' width='240'/>
           <Typography fontWeight={'bold'} fontSize={24} color={'#D896F6'}>
           留法5年學姊Cynthia
           </Typography>
@@ -123,7 +123,7 @@ query HOME_QUERY {
 
 export async function getStaticProps() {
   const client = new ApolloClient({
-    uri: 'http://127.0.0.1:1337/graphql',
+    uri: `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`,
     cache: new InMemoryCache()
   })
 

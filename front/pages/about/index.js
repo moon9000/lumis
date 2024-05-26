@@ -31,7 +31,7 @@ export default function About({ content, image }) {
         }}
       >
         <img
-          src={`http://localhost:1337${image.data.attributes.url}`}
+          src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.data.attributes.url}`}
           alt=""
           height="350"
           width="350"
@@ -62,7 +62,7 @@ const ABOUT_QUERY = gql`
 
 export async function getStaticProps() {
   const client = new ApolloClient({
-    uri: "http://127.0.0.1:1337/graphql",
+    uri: `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`,
     cache: new InMemoryCache(),
   });
 
