@@ -10,14 +10,13 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@_sh/strapi-plugin-ckeditor": "^2.0.4",
     "@ckeditor/strapi-plugin-ckeditor": "^0.0.7",
     "@strapi/plugin-graphql": "^4.9.2",
     "@strapi/plugin-i18n": "4.9.2",
     "@strapi/plugin-users-permissions": "4.9.2",
     "@strapi/strapi": "4.9.2",
+    "better-sqlite3": "^10.0.0",
     "pg": "^8.11.5",
-    "better-sqlite3": "^5.1.7",
     "strapi-plugin-vercel-deploy": "^1.4.0"
   },
   "author": {
@@ -25,10 +24,6 @@
   },
   "strapi": {
     "uuid": "1f57cd73-023f-4918-a656-7ae99a750c65"
-  },
-  "engines": {
-    "node": ">=14.19.1 <=18.x.x",
-    "npm": ">=6.0.0"
   },
   "license": "MIT"
 }
