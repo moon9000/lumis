@@ -36,7 +36,7 @@ export default function About({ content, image }) {
           height="350"
           width="350"
         />
-        <Typography sx={{paddingRight: '300px'}} style={{ wordWrap: "break-word"}}>{content}</Typography>
+        <Typography sx={{paddingRight: '300px'}} style={{ wordWrap: "break-word"}}>TODO CONTENT</Typography>
       </Stack>
     </div>
   );
@@ -47,7 +47,6 @@ const ABOUT_QUERY = gql`
     about {
       data {
         attributes {
-          content
           image {
             data {
               attributes {
@@ -74,7 +73,7 @@ export async function getStaticProps() {
   const pageData = data;
   return {
     props: {
-      content: pageData.about.data.attributes.content,
+      //content: pageData.about.data.attributes.content,
       image: pageData.about.data.attributes.image,
     },
   };

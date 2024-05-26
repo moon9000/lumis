@@ -49,7 +49,7 @@ export function ArticleCard({ article, showContent = false }) {
         }}
       >
         {renderFullArticleHeader()}
-        <Markdown>{article.attributes.content}</Markdown>
+        {/* <Markdown>{article.attributes.content}</Markdown> */}
       </Stack>
     );
   };

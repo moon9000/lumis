@@ -107,7 +107,6 @@ query HOME_QUERY {
       attributes {
         title, 
         description,
-        content,
         date,
         image{
           data{

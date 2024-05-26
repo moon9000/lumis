@@ -22,7 +22,6 @@ const ARTICLES_QUERY = gql`
         attributes {
           title
           description
-          content
           date
           image {
             data {
