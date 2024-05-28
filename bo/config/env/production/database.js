@@ -11,7 +11,8 @@ module.exports = ({ env }) => {
         port,
         database,
         user,
-        password
+        password,
+        ssl: { rejectUnauthorized: false },
       },
       debug: false,
     },
