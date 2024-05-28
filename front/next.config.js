@@ -6,7 +6,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "lunis-strapi-bo.onrender.com",
-        port: '1337',
+        port: '1000',
         pathname: "lunis-strapi-bo.onrender.com",
       },
     ],

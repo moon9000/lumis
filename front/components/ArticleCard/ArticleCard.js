@@ -2,9 +2,11 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import { bgColor } from "../../constants/constants";
 import Markdown from "markdown-to-jsx";
 import Image from "next/image";
+import { getStrapiURL } from "../../utils/utils";
 
 export function ArticleCard({ article, showContent = false }) {
   const imageUrl = article.attributes.image?.data?.attributes?.url;
+  const baseUrl = getStrapiURL();
   const renderFullArticleHeader = () => {
     return (
       <Stack
@@ -17,7 +19,7 @@ export function ArticleCard({ article, showContent = false }) {
       >
         {imageUrl && (
           <img
-            src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`}
+            src={`${baseUrl}${imageUrl}`}
             width={300}
             height={300}
           />

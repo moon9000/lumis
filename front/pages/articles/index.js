@@ -3,6 +3,7 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import { Stack } from "@mui/material";
 import { ArticleCard } from "../../components/ArticleCard";
+import { getStrapiURL } from "../../utils/utils";
 
 export default function Articles({ articles }) {
   return (
@@ -37,8 +38,9 @@ const ARTICLES_QUERY = gql`
 `;
 
 export async function getStaticProps() {
+  const url = getStrapiURL();
   const client = new ApolloClient({
-    uri: `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`,
+    uri: `${url}/graphql`,
     cache: new InMemoryCache(),
   });
 

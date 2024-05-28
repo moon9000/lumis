@@ -7,6 +7,9 @@ import { HomeServices } from '../components/HomeServices'
 import { HomeServicesCard } from '../components/HomeServicesCard'
 import { bgColor } from '../constants/constants'
 import { ArticleCard } from '../components/ArticleCard'
+import { getStrapiURL } from '../utils/utils'
+
+const baseUrl = getStrapiURL();
 
 export default function Home({homepage, articles}) {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +47,7 @@ export default function Home({homepage, articles}) {
       </Grid>
       <Grid xs={6} container direction='column' sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <Stack spacing={3} direction='column' sx={{textAlign: 'center'}}>
-          <img src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${homepage.image.data.attributes.url}`} alt="" height='240' width='240'/>
+          <img src={`${baseUrl}${homepage.image.data.attributes.url}`} alt="" height='240' width='240'/>
           <Typography fontWeight={'bold'} fontSize={24} color={'#D896F6'}>
           留法5年學姊Cynthia
           </Typography>
@@ -123,7 +126,7 @@ query HOME_QUERY {
 
 export async function getStaticProps() {
   const client = new ApolloClient({
-    uri: `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`,
+    uri: `${baseUrl}/graphql`,
     cache: new InMemoryCache()
   })
 

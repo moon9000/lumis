@@ -2,8 +2,12 @@
 
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import { Stack, Typography } from "@mui/material";
+import { getStrapiURL } from "../../utils/utils";
+
+const baseUrl = getStrapiURL();
 
 export default function About({ content, image }) {
+
   return (
     <div>
       <Typography
@@ -31,7 +35,7 @@ export default function About({ content, image }) {
         }}
       >
         <img
-          src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.data.attributes.url}`}
+          src={`${baseUrl}${image.data.attributes.url}`}
           alt=""
           height="350"
           width="350"
@@ -62,7 +66,7 @@ const ABOUT_QUERY = gql`
 
 export async function getStaticProps() {
   const client = new ApolloClient({
-    uri: `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`,
+    uri: `${baseUrl}/graphql`,
     cache: new InMemoryCache(),
   });
 

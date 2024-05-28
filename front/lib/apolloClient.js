@@ -1,10 +1,12 @@
 import { useMemo } from "react"
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client"
+import { getStrapiURL } from "../utils/utils"
 
 let apolloClient
 
 function createApolloClient() {
-  const graphqlEndpointUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`
+  const baseUrl = getStrapiURL();
+  const graphqlEndpointUrl = `${baseUrl}/graphql`
 
   return new ApolloClient({
     ssrMode: typeof window === "undefined",
