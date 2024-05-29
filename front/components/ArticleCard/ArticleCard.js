@@ -1,12 +1,10 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { bgColor } from "../../constants/constants";
 import Markdown from "markdown-to-jsx";
-import Image from "next/image";
-import { getStrapiURL } from "../../utils/utils";
 
 export function ArticleCard({ article, showContent = false }) {
   const imageUrl = article.attributes.image?.data?.attributes?.url;
-  const baseUrl = getStrapiURL();
+
   const renderFullArticleHeader = () => {
     return (
       <Stack
@@ -14,21 +12,15 @@ export function ArticleCard({ article, showContent = false }) {
         sx={{
           display: "flex",
           alignItems: "center",
-          width: '100%'
+          width: "100%",
         }}
       >
-        {imageUrl && (
-          <img
-            src={`${baseUrl}${imageUrl}`}
-            width={300}
-            height={300}
-          />
-        )}
+        {imageUrl && <img src={imageUrl} width={300} height={300} />}
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
-            width: '100%'
+            width: "100%",
           }}
         >
           <Typography variant="h6">
@@ -47,7 +39,7 @@ export function ArticleCard({ article, showContent = false }) {
         sx={{
           display: "flex",
           alignItems: "center",
-          paddingX: '20px'
+          paddingX: "20px",
         }}
       >
         {renderFullArticleHeader()}
@@ -59,21 +51,25 @@ export function ArticleCard({ article, showContent = false }) {
   const renderPreviewArticle = () => {
     return (
       <Stack sx={{ display: "flex", maxWidth: "800px" }}>
-        <Stack
-          direction={"column"}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Typography variant="h6">
-            {new Date(article.attributes.date).toLocaleDateString("fr")}{" "}
-            {showContent ? "-" : null}{" "}
-          </Typography>
-          <Typography variant="h6">{article.attributes.title}</Typography>
+        <Stack sx={{ display: "flex", width: '100%', justifyContent: "center" }} direction="row">
+          {imageUrl && <img src={imageUrl} width={150} height={150} />}
+          <Stack
+            direction={"column"}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              paddingLeft: '40px'
+            }}
+          >
+            <Typography variant="h6">
+              {new Date(article.attributes.date).toLocaleDateString("fr")}{" "}
+              {showContent ? "-" : null}{" "}
+            </Typography>
+            <Typography variant="h6">{article.attributes.title}</Typography>
+          </Stack>
         </Stack>
-        <Box sx={{ justifyContent: "center", alignItems: "center" }}>
+        <Box sx={{ paddingTop: '10px', paddingX: '20px', justifyContent: "center", alignItems: "center" }}>
           <Markdown>{article.attributes.description}</Markdown>
         </Box>
         <Button sx={{ marginTop: "auto" }} href={`/articles/${article.id}`}>
@@ -88,6 +84,7 @@ export function ArticleCard({ article, showContent = false }) {
       sx={{
         display: "flex",
         height: showContent ? undefined : "350px",
+        width: showContent ? undefined : "350px",
         flexDirection: showContent ? "column" : null,
         borderStyle: "dashed solid",
         borderColor: bgColor,

@@ -2,7 +2,7 @@
 
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
 import { Button, Dialog, DialogContent, DialogTitle, Grid, Stack, Typography } from '@mui/material'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { HomeServices } from '../components/HomeServices'
 import { HomeServicesCard } from '../components/HomeServicesCard'
 import { bgColor } from '../constants/constants'
@@ -47,7 +47,7 @@ export default function Home({homepage, articles}) {
       </Grid>
       <Grid xs={6} container direction='column' sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <Stack spacing={3} direction='column' sx={{textAlign: 'center'}}>
-          <img src={`${baseUrl}${homepage.image.data.attributes.url}`} alt="" height='240' width='240'/>
+          <img src={homepage.image.data.attributes.url} alt="" height='240' width='240'/>
           <Typography fontWeight={'bold'} fontSize={24} color={'#D896F6'}>
           留法5年學姊Cynthia
           </Typography>
@@ -135,9 +135,9 @@ export async function getStaticProps() {
   });
 
   const pageData = data
+
   return {
     props: {
-      toto: 'test',
       articles: pageData.articles.data,
       homepage: pageData.homepage.data.attributes
     }

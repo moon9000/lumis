@@ -35,12 +35,12 @@ export default function About({ content, image }) {
         }}
       >
         <img
-          src={`${baseUrl}${image.data.attributes.url}`}
+          src={image.data.attributes.url}
           alt=""
           height="350"
           width="350"
         />
-        <Typography sx={{paddingRight: '300px'}} style={{ wordWrap: "break-word"}}>TODO CONTENT</Typography>
+        <Typography sx={{paddingRight: '300px'}} style={{ wordWrap: "break-word"}}>{content}</Typography>
       </Stack>
     </div>
   );
@@ -58,6 +58,7 @@ const ABOUT_QUERY = gql`
               }
             }
           }
+          content
         }
       }
     }
@@ -77,7 +78,7 @@ export async function getStaticProps() {
   const pageData = data;
   return {
     props: {
-      //content: pageData.about.data.attributes.content,
+      content: pageData.about.data.attributes.content,
       image: pageData.about.data.attributes.image,
     },
   };
