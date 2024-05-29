@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["lunis-strapi-bo.onrender.com"],
+    domains: ["localhost"],
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "lunis-strapi-bo.onrender.com",
-        port: '1000',
-        pathname: "lunis-strapi-bo.onrender.com",
+        protocol: "http",
+        hostname: "localhost",
+        port: '1337',
+        pathname: "localhost",
       },
     ],
   },
