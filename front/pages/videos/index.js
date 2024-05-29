@@ -38,10 +38,10 @@ const VIDEOS_QUERY = gql`
   }
 `;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   //const apolloClient = initializeApollo()
 
-  console.log("in getStaticProps");
+  console.log("in getServerSideProps");
   const client = new ApolloClient({
     uri: `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`,
     cache: new InMemoryCache(),

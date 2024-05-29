@@ -55,7 +55,7 @@ export async function getStaticPaths() {
     }
   }
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   const baseUrl = getStrapiURL();
   const client = new ApolloClient({
     uri: `${baseUrl}/graphql`,

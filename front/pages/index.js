@@ -106,25 +106,25 @@ query HOME_QUERY {
   }
   articles {
     data {
-      id,
-      attributes {
-        title, 
-        description,
-        date,
-        image{
-          data{
-            attributes{
-              url
+        id
+        attributes {
+            title
+            description
+            date
+            image {
+                data {
+                attributes {
+                    url
+                }
+                }
             }
-          }
         }
-      }
     }
-  }
+    }
 }
 `
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const client = new ApolloClient({
     uri: `${baseUrl}/graphql`,
     cache: new InMemoryCache()

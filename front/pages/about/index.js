@@ -65,7 +65,7 @@ const ABOUT_QUERY = gql`
   }
 `;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const client = new ApolloClient({
     uri: `${baseUrl}/graphql`,
     cache: new InMemoryCache(),

@@ -27,7 +27,7 @@ const HOME_QUERY = gql`
   }
 `;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const apolloClient = initializeApollo();
 
   /* 
