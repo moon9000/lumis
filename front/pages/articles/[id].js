@@ -35,7 +35,7 @@ const ARTICLES_QUERY = gql`
     }
 `;
 
-export async function getStaticProps(ctx) {
+export async function getStaticPaths(ctx) {
   const baseUrl = getStrapiURL();
   const client = new ApolloClient({
     uri: `${baseUrl}/graphql`,
