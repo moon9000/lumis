@@ -35,26 +35,6 @@ const ARTICLES_QUERY = gql`
     }
 `;
 
-export async function getStaticPaths() {
-    const baseUrl = getStrapiURL();
-    const client = new ApolloClient({
-        uri: `${baseUrl}/graphql`,
-        cache: new InMemoryCache(),
-      });
-
-    const dataStatic = await client.query({
-        query: ARTICLES_QUERY,
-    });
-
-
-    return {
-      paths: dataStatic.data.articles.data.map(article => ({
-        params: { id: article.id.toString() },
-      })),
-      fallback: false
-    }
-  }
-
 export async function getServerSideProps(ctx) {
   const baseUrl = getStrapiURL();
   const client = new ApolloClient({
