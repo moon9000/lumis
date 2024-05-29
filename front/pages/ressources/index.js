@@ -32,7 +32,7 @@ export async function getServerSideProps() {
 
   /* 
   const client = new ApolloClient({
-    uri: `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`,
+    uri: `${process.env.STRAPI_URL}/graphql`,
     cache: new InMemoryCache()
   })
 
